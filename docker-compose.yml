@@ -1,0 +1,14 @@
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: expo
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: tutorial
+    volumes:
+      - /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
