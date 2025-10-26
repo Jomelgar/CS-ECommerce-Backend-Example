@@ -8,9 +8,9 @@ using Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
-builder.Logging.SetMinimumLevel(LogLevel.Warning); 
+builder.Logging.SetMinimumLevel(LogLevel.Information); 
 
-    builder.Services.AddHttpClient("PollyHttpClient")
+builder.Services.AddHttpClient("PollyHttpClient")
         .AddTransientHttpErrorPolicy(policyBuilder =>
             policyBuilder.WaitAndRetryAsync(
                 5, // Numero de reintentos
@@ -21,7 +21,7 @@ builder.Logging.SetMinimumLevel(LogLevel.Warning);
 builder.Services.AddHttpClient("Bulkhead")
     .AddPolicyHandler(Policy.BulkheadAsync<HttpResponseMessage>(
         maxParallelization: 5,//Numero de aceptados
-        maxQueuingActions: 6, //Cola  
+        maxQueuingActions: 5, //Cola  
         onBulkheadRejectedAsync: context =>
         {
             Console.WriteLine("Bulkhead rechazado: demasiadas solicitudes concurrentes");
