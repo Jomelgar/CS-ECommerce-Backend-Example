@@ -1,0 +1,12 @@
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\bin\Debug\net9.0\SharedData.deps.json
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\bin\Debug\net9.0\SharedData.dll
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\bin\Debug\net9.0\SharedData.pdb
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\SharedData.csproj.AssemblyReference.cache
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\SharedData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\SharedData.AssemblyInfoInputs.cache
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\SharedData.AssemblyInfo.cs
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\SharedData.csproj.CoreCompileInputs.cache
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\SharedData.dll
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\refint\SharedData.dll
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\SharedData.pdb
+C:\Users\jomel\OneDrive\Documentos\Code\ECommmerceCS\SharedData\obj\Debug\net9.0\ref\SharedData.dll
