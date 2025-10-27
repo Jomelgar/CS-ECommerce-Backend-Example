@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Polly.Extensions.Http;
 using Polly;
 using ConnectionDb;
 using Services;
@@ -17,6 +18,8 @@ builder.Services.AddHttpClient("PollyHttpClient")
                 retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
             )
         );
+
+
 
 builder.Services.AddHttpClient("Bulkhead")
     .AddPolicyHandler(Policy.BulkheadAsync<HttpResponseMessage>(

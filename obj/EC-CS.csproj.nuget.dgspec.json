@@ -68,7 +68,7 @@
             },
             "Polly": {
               "target": "Package",
-              "version": "[8.6.4, )"
+              "version": "[7.2.4, )"
             },
             "Polly.Extensions.Http": {
               "target": "Package",

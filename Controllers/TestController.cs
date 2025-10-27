@@ -2,7 +2,9 @@ namespace Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using Polly.Bulkhead;
+using Polly.CircuitBreaker;
 using Polly;
+
 
 [ApiController]
 [Route("[controller]")]
@@ -11,9 +13,16 @@ public class TestController : ControllerBase
     private readonly HttpClient _httpClient;
     private readonly HttpClient _bulkhead;
 
+     private static readonly AsyncCircuitBreakerPolicy<HttpResponseMessage> circuitBreakerPolicy =
+        Policy.HandleResult<HttpResponseMessage>(message => (int)message.StatusCode ==500)
+        .CircuitBreakerAsync(
+            2,    
+            TimeSpan.FromSeconds(10)
+        ); 
+
     public TestController(IHttpClientFactory httpClientFactory)
     {
-        _httpClient = httpClientFactory.CreateClient("PollyHttpClient");
+        _httpClient = httpClientFactory.CreateClient("HolaMundo");
 
         _bulkhead = httpClientFactory.CreateClient("Bulkhead");
     }
@@ -23,7 +32,13 @@ public class TestController : ControllerBase
     {
         try
         {
-            var response = await _httpClient.GetAsync("http://localhost:5132/Inventory");
+            if (circuitBreakerPolicy.CircuitState == CircuitState.Open)
+            {
+                throw new Exception("Service is not available.");
+            }
+
+            var response = await circuitBreakerPolicy.ExecuteAsync(() =>
+            _httpClient.GetAsync("http://localhost:5132/Inventory"));
             response.EnsureSuccessStatusCode();
             return Ok("Solicitud exitosa");
         }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P1Ugci3hwUA=",
+  "dgSpecHash": "IA8hNmNtlrA=",
   "success": true,
   "projectFilePath": "C:\\Users\\jomel\\OneDrive\\Documentos\\Code\\EC-CS\\EC-CS.csproj",
   "expectedPackageFiles": [
@@ -43,8 +43,7 @@
     "C:\\Users\\jomel\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
     "C:\\Users\\jomel\\.nuget\\packages\\npgsql\\9.0.3\\npgsql.9.0.3.nupkg.sha512",
     "C:\\Users\\jomel\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\9.0.4\\npgsql.entityframeworkcore.postgresql.9.0.4.nupkg.sha512",
-    "C:\\Users\\jomel\\.nuget\\packages\\polly\\8.6.4\\polly.8.6.4.nupkg.sha512",
-    "C:\\Users\\jomel\\.nuget\\packages\\polly.core\\8.6.4\\polly.core.8.6.4.nupkg.sha512",
+    "C:\\Users\\jomel\\.nuget\\packages\\polly\\7.2.4\\polly.7.2.4.nupkg.sha512",
     "C:\\Users\\jomel\\.nuget\\packages\\polly.extensions.http\\3.0.0\\polly.extensions.http.3.0.0.nupkg.sha512",
     "C:\\Users\\jomel\\.nuget\\packages\\swashbuckle.aspnetcore\\9.0.6\\swashbuckle.aspnetcore.9.0.6.nupkg.sha512",
     "C:\\Users\\jomel\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\9.0.6\\swashbuckle.aspnetcore.swagger.9.0.6.nupkg.sha512",
