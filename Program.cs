@@ -18,8 +18,28 @@ builder.Services.AddHttpClient("PollyHttpClient")
                 retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))
             )
         );
+var circuitBreakerPolicy = Policy.HandleResult<HttpResponseMessage>(message => (int)message.StatusCode != 200)// Maneja códigos HTTP no exitosos
+    .CircuitBreakerAsync(
+        handledEventsAllowedBeforeBreaking: 3,    
+        durationOfBreak: TimeSpan.FromSeconds(10),
+         onBreak: (outcome, breakDelay) =>
+                    {
+                        Console.WriteLine($"⛔ Circuito abierto por {breakDelay.TotalSeconds} segundos debido a: " +
+                                          $"{(outcome.Exception != null ? outcome.Exception.Message : outcome.Result.StatusCode.ToString())}");
+                    },
+                    onReset: () =>
+                    {
+                        Console.WriteLine("✅ Circuito cerrado nuevamente — las solicitudes se reanudarán normalmente.");
+                    },
+                    onHalfOpen: () =>
+                    {
+                        Console.WriteLine("⚠️ Circuito en estado HALF-OPEN — probando la conexión...");
+                    }// ...el circuito se abre 10 segundos
+    );
 
-
+// ✅ Registrar el HttpClient con la política
+builder.Services.AddHttpClient("CircuitBreakerClient")
+    .AddPolicyHandler(circuitBreakerPolicy);
 
 builder.Services.AddHttpClient("Bulkhead")
     .AddPolicyHandler(Policy.BulkheadAsync<HttpResponseMessage>(
